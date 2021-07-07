@@ -1,3 +1,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: font-krona;
+    font-weight: 400;
+    src: url(/assets/fonts/KronaOne-Regular.ttf) format("ttf");
+  }
+
+  @font-face {
+    font-family: Proxima Nova;
+    font-weight: 400;
+    src: url(/fonts/proxima-nova/400-regular.woff) format("woff");
+  }
+
+  /* 一级大标题 */
+  h1 {
+    @apply text-5xl;
+    @apply font-bold
+  }
+
+  /* 普通标题 */
+  h2 {
+    @apply text-2xl;
+  }
+
+  /* 二级标题 */
+  h3 {
+    @apply text-xl;
+  }
+
+  /* 正常 */
+  h4 {
+    @apply text-base;
+  }
+
+  /* small */
+  h5 {
+    @apply text-sm;
+
+  }
+
+  /* small-thin */
+  h6 {
+    @apply text-sm;
+    @apply font-thin
+  }
+
+  a {
+    @apply underline;
+  }
+}
