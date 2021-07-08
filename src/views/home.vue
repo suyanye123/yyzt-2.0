@@ -26,8 +26,7 @@
     </div>
     <!-- 右侧路由 -->
     <div class="right">
-      <!-- 卡片 w: 100% 2/5  h-64-->
-      <card v-for="(item, index) in list" :key="index" :list="list" />
+      <card v-for="(item, index) in list" :key="index" :list="item" />
     </div>
   </div>
 </template>
@@ -97,6 +96,7 @@ export default {
   }
 }
 .right {
+  overflow: scroll;
   width: 65vw;
   background-color: #fff;
   display: flex;
