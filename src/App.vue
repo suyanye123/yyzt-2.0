@@ -1,9 +1,5 @@
 <template>
-  <div id="app">
-    <router-view />
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/more">About</router-link> -->
-  </div>
+  <router-view />
 </template>
 
 <style lang="scss">
