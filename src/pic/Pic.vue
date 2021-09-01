@@ -10,12 +10,13 @@
     <div class="pop" v-show="picShow" @click="picShow = !picShow">
       <div class="popup">
         <img :src="selected" />
+        {{ selected }}
       </div>
     </div>
   </div>
 </template>
 <script>
-import { nextTick, reactive } from "vue";
+import { nextTick, reactive, onMounted } from "vue";
 export default {
   setup() {
     const list = reactive([]);
@@ -37,9 +38,30 @@ export default {
       .keys()
       .map((item) => require("./Image" + item.replace(/./, "")))
       .sort(randomSort);
-    list.push(...modules.splice(0));
-
+    // list.push(...modules.splice(0, 20));
+    list.push(...modules.sort(randomSort));
     // console.log(list);
+
+    onMounted(() => {
+      //监听滚动条
+      window.onscroll = function() {
+        //变量scrollTop是滚动条滚动时，距离顶部的距离
+        var scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        //变量windowHeight是可视区的高度
+        var windowHeight =
+          document.documentElement.clientHeight || document.body.clientHeight;
+        //变量scrollHeight是滚动条的总高度
+        var scrollHeight =
+          document.documentElement.scrollHeight || document.body.scrollHeight;
+        //滚动条到底部的条件
+        if (scrollTop + windowHeight >= scrollHeight * 0.9) {
+          //到了这个就可以进行业务逻辑加载后台数据了
+          console.log("到了底部");
+          list.push(...modules.sort(randomSort));
+        }
+      };
+    });
     return { list };
   },
   data() {
@@ -50,7 +72,7 @@ export default {
   },
   methods: {
     alert(item) {
-      console.log(item);
+      // console.log(item);
       this.selected = item;
       this.picShow = true;
     },
@@ -77,9 +99,11 @@ export default {
   opacity: 1;
 }
 .popup {
+  display: flex;
+  flex-direction: column;
 }
 .popup img {
-  max-height: 600px;
+  max-height: 700px;
 }
 .shell {
   max-width: 1300px;
