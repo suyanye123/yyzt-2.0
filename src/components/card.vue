@@ -8,7 +8,7 @@
     <!-- 下半 -->
     <div class="noshow">
       <div v-for="item in list.span" :key="item.index" class="tag">
-        <img src="../assets/logo.png" style="height: 16px;width: 16px;" />
+        <img src="../assets/syy123.jpg" style="height: 16px;width: 16px;" />
         <p>{{ item }}</p>
       </div>
     </div>
@@ -33,8 +33,8 @@ export default {
   justify-content: space-around;
   background-color: rgb(177, 166, 166);
   padding: 20px;
-  width: 240px;
-  height: 160px;
+  width: 280px;
+  height: 200px;
 
   .show {
     position: relative;

@@ -1,0 +1,106 @@
+//隐藏滑动条
+::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+//选择器 * 无法覆盖到伪元素，所以需要给 :before 和 :after 分别设置。而通过继承的方式应用到所有元素，需要时可以方便的将某个元素及其后代元素的 box-sizing 改回 content-box。
+html {
+  box-sizing: border-box;
+  // -webkit-box-sizing: border-box;
+  // -moz-box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/*响应式适配 XLarge */
+@media screen and (max-width: 1680px) {
+  /* Basic */
+  body {
+  }
+
+  /* others */
+  #total {
+    display: flex;
+  }
+  .left {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .right {
+    width: 65vw;
+  }
+}
+
+/* Large */
+@media screen and (max-width: 1280px) {
+  /* Basic */
+
+  /* others */
+  #total {
+    display: flex;
+  }
+  .left {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .right {
+    width: 65vw;
+  }
+}
+
+/* Medium */
+@media screen and (max-width: 1024px) {
+  /* Basic */
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+  /* Image */
+}
+
+/* Small */
+@media screen and (max-width: 736px) {
+  /* Basic */
+  /* others */
+  #total {
+    display: flex;
+  }
+  .left {
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .right {
+    width: 60vw;
+  }
+}
+
+/* XSmall */
+@media screen and (max-width: 480px) {
+  /* Basic */
+  /* others */
+  #total {
+    display: inline-block;
+  }
+  .left {
+    width: 100vw;
+  }
+  .right {
+    width: 100vw;
+  }
+}

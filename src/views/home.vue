@@ -1,31 +1,38 @@
 <template>
-  <div class="total">
+  <div id="total">
     <div class="left">
-      <div class="title">
-        <img src="../assets/logo.png" />
-        <div>
-          <h1>Matrixages</h1>
-          <h3>design better, life better</h3>
-        </div>
+      <!-- avatar -->
+      <div class="avatar">
+        <img src="../assets/syy123.jpg" alt="简素言也" />
+        <h1 id="logo"><a href="#">简素言也</a></h1>
+        <p>
+          ♥ World is powered by solitude.
+        </p>
       </div>
+      <!-- content -->
       <div>
-        <h6>
-          Matrixages的灵感来源于《黑客帝国》和凯文·凯利的《失控》。人类在建筑上的艺术成就色彩渐渐暗淡，我们不再感叹于现实中艺术的伟大，却对手机屏幕上影像如痴如醉。现实世界有限的资源渐渐不足以支撑人类的欲望和野心，而虚拟世界没有边界——我们不可避免地走向虚拟化。那谁来建设这个虚拟化的世界？谁来构建虚拟世界的艺术？这是我一直在思考的问题。
-        </h6>
-        <h6>
-          Matrixages致力于做虚拟世界的艺术。把现实世界中的好的思想，好的设计，投射到虚拟世界当中，让人们感受到，什么是美？让这种美去改变他们对于生活的认知，去指引他们探寻内心深处的想法，把自己的灵魂从肉体中释放出来，去感受这世界的喜怒哀乐，而不是在快乐中沉沦。
-        </h6>
-        <h6>
-          这种未来是关于设计、开源、共建、分享、自由、虚拟化的融合趋势，而Matrixages是我对于未来的畅想，对于现实的回应，对于过去的反思，以及关于我对于自己的看法——知行合一。
-        </h6>
-        <h6>
-          "未有知而不行者，知而不行，只是未知。" ——王阳明
-        </h6>
+        <p>
+          Hi there! I'm suyanye123 👋 <br />
+          一名觉得自己啥也不会<br />
+          自学转行的编程爱好者 <br />
+          微信公众号：简素言也
+        </p>
+      </div>
+      <!-- Footer -->
+      <div id="footer">
+        <ul class="copyright">
+          <li>Copyright 2020 简素言也</li>
+          <li>
+            <a href="https://beian.miit.gov.cn/">鄂ICP备2021000292号-1</a>
+          </li>
+          <li></li>
+        </ul>
       </div>
     </div>
-    <!-- 右侧路由 -->
+    <!-- 右侧卡片 -->
     <div class="right">
       <card
+        class="cardItem"
         v-for="(item, index) in list"
         :key="index"
         :list="item"
@@ -43,17 +50,57 @@ export default {
     return {
       list: [
         {
-          title: "light design",
-          text: "可能是世界上最贴近自然的组件库",
-          span: ["css", "布局", "样式"],
+          title: "syy-notes",
+          text: "前端小札",
+          span: ["博客", "前端笔记", "vuePress"],
+        },
+        {
+          title: "syy-template",
+          text: "项目模板",
+          span: ["脚手架", "空白模板", "项目搭建"],
+        },
+        {
+          title: "su-UI",
+          text: "自用css库",
+          span: ["css", "UI", "交互"],
+        },
+        {
+          title: "syy-admin",
+          text: "管理系统",
+          span: ["后台管理", "时间规划"],
+        },
+        {
+          title: "syy-book",
+          text: "收集文章",
+          span: ["转载", "深有感触"],
+        },
+        {
+          title: "syy-design",
+          text: "胡思乱想",
+          span: ["设计", "想法", "胡思乱想"],
         },
       ],
     };
   },
   methods: {
     intoDetail(item, index) {
-      console.log(item, index);
       if (index == 0) {
+        // window.location.href = "https://yu-nan.gitee.io/syy-notes/";
+        window.open("https://yu-nan.gitee.io/syy-notes/");
+      }
+      if (index == 1) {
+        window.open("https://gitee.com/yu-nan/syy-template");
+      }
+      if (index == 2) {
+        window.open("https://gitee.com/yu-nan/suUI");
+      }
+      if (index == 3) {
+        // window.open("https://gitee.com/yu-nan/syy-template");
+      }
+      if (index == 4) {
+        // window.open("https://gitee.com/yu-nan/syy-template");
+      }
+      if (index == 5) {
         this.$router.push("/Pic");
       }
     },
@@ -61,35 +108,82 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-  color: transparent;
-}
-.total {
-  height: 100vh;
-  background-color: #000;
-  display: flex;
-}
-.left {
-  padding: 40px 0;
+// .left a:hover {
+//   color: #ffffff !important;
+// }
 
-  width: 35vw;
-  .title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+/* Left */
+.left {
+  -moz-flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+  background-color: rgb(223, 221, 221);
+  height: 100vh;
 }
+
+.left > .avatar {
+  display: block;
+  margin: 0 auto 2.25em auto;
+}
+.avatar img {
+  width: 10rem;
+  height: 10rem;
+}
+.avatar > h1 {
+  font-size: 1.25em;
+  margin: 0;
+}
+
+.avatar > p {
+  color: #d2f2e9;
+  font-style: italic;
+  margin: 1em 0 0 0;
+}
+
+/* Footer */
+
+#footer {
+  // background: #fafafa;
+  border-top: 0;
+  color: #c0c0c0;
+  overflow: hidden;
+}
+
+#footer .copyright {
+  line-height: 1em;
+  list-style: none;
+  padding: 0;
+}
+
+#footer .copyright li {
+  border-left: solid 1px #d4d4d4;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-left: 1em;
+  padding-left: 1em;
+}
+
+#footer .copyright li:first-child {
+  border-left: 0;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+#footer .copyright li a {
+  color: inherit;
+}
+/* right */
 .right {
   overflow: scroll;
-  width: 65vw;
-  background-color: #fff;
+  background-color: rgb(153, 173, 119);
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
   border-radius: 30px;
-  padding: 32px;
+}
+.right > .cardItem {
+  flex-shrink: 0;
 }
 </style>
