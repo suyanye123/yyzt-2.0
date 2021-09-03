@@ -43,9 +43,36 @@
 </template>
 <script>
 import card from "../components/card.vue";
+import { onMounted, onUnmounted, reactive } from "vue";
 export default {
   components: { card },
-  setup() {},
+  setup() {
+    let bgclist = [
+      "../../tmp-background/1.jpg",
+      "../../tmp-background/2.jpg",
+      "../../tmp-background/3.jpg",
+      "../../tmp-background/4.jpg",
+      "../../tmp-background/5.png",
+      "../../tmp-background/6.png",
+      "../../tmp-background/7.png",
+      "../../tmp-background/8.png",
+      "../../tmp-background/9.png",
+      "../../tmp-background/10.png",
+    ];
+    let timer1;
+    onMounted(() => {
+      timer1 = setInterval(() => {
+        let url = bgclist[Math.floor(Math.random() * 10)];
+        let bgc = "../../tmp-background/2.jpg";
+        // document.getElementById("total")[0].style.setProperty("--mybgc", bgc);
+        // console.log("---", document);
+      }, 2000);
+    });
+    onUnmounted(() => {
+      clearInterval(timer1);
+      console.log(timer1);
+    });
+  },
   data() {
     return {
       list: [
@@ -80,6 +107,7 @@ export default {
           span: ["设计", "想法", "胡思乱想"],
         },
       ],
+      img: require("../../tmp-background/微信图片_20210903124216.jpg"),
     };
   },
   methods: {
@@ -108,6 +136,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+#total {
+  // $mybgc: var(--mybgc);
+  $mybgc: "../../tmp-background/10.png";
+  background-size: cover;
+  background-image: url($mybgc);
+}
 // .left a:hover {
 //   color: #ffffff !important;
 // }
@@ -118,7 +152,7 @@ export default {
   -webkit-flex-shrink: 0;
   -ms-flex-shrink: 0;
   flex-shrink: 0;
-  background-color: rgb(223, 221, 221);
+  // background-color: rgb(223, 221, 221);
   height: 100vh;
 }
 
@@ -176,7 +210,7 @@ export default {
 /* right */
 .right {
   overflow: scroll;
-  background-color: rgb(153, 173, 119);
+  // background-color: rgb(153, 173, 119);
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
