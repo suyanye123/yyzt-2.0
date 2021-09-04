@@ -4,7 +4,7 @@
       <!-- avatar -->
       <div class="avatar">
         <img src="../assets/syy123.jpg" alt="简素言也" />
-        <h1 id="logo"><a href="#">简素言也</a></h1>
+        <h1 id="logo">简素言也</h1>
         <p>
           ♥ World is powered by solitude.
         </p>
@@ -138,7 +138,7 @@ export default {
 <style lang="scss" scoped>
 #total {
   // $mybgc: var(--mybgc);
-  $mybgc: "../../tmp-background/10.png";
+  $mybgc: "../../tmp-background/微信图片_20210903124216.jpg";
   background-size: cover;
   background-image: url($mybgc);
 }
@@ -165,6 +165,7 @@ export default {
   height: 10rem;
 }
 .avatar > h1 {
+  color: #d4d4d4;
   font-size: 1.25em;
   margin: 0;
 }

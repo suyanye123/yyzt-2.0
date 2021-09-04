@@ -32,6 +32,7 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   background-color: rgb(177, 166, 166);
+  opacity: 0.5;
   padding: 20px;
   width: 280px;
   height: 200px;
