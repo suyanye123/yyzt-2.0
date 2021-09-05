@@ -1,3 +1,23 @@
+//设置各个字体大小（参照tailwind css）
+h1 {
+  //卡片标题，加粗
+  font-size: x-large;
+}
+h2 {
+  //卡片副标题，不加粗
+}
+h3 {
+}
+
+h4 {
+  //正文，常用字体
+}
+h5 {
+  //较小
+}
+h6 {
+  //较小，备注，斜细体
+}
 //隐藏滑动条
 ::-webkit-scrollbar {
   display: none;

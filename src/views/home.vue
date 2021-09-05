@@ -47,18 +47,7 @@ import { onMounted, onUnmounted, reactive } from "vue";
 export default {
   components: { card },
   setup() {
-    let bgclist = [
-      "../../tmp-background/1.jpg",
-      "../../tmp-background/2.jpg",
-      "../../tmp-background/3.jpg",
-      "../../tmp-background/4.jpg",
-      "../../tmp-background/5.png",
-      "../../tmp-background/6.png",
-      "../../tmp-background/7.png",
-      "../../tmp-background/8.png",
-      "../../tmp-background/9.png",
-      "../../tmp-background/10.png",
-    ];
+    let bgclist = [];
     let timer1;
     onMounted(() => {
       timer1 = setInterval(() => {
@@ -107,16 +96,17 @@ export default {
           span: ["设计", "想法", "胡思乱想"],
         },
       ],
-      img: require("../../tmp-background/微信图片_20210903124216.jpg"),
+      // img: require("../../tmp-background/微信图片_20210903124216.jpg"),
     };
   },
   methods: {
     intoDetail(item, index) {
       if (index == 0) {
-        // window.location.href = "https://yu-nan.gitee.io/syy-notes/";
-        window.open("https://yu-nan.gitee.io/syy-notes/");
+        window.location.href = "https://yu-nan.gitee.io/syy-notes/";
+        // window.open("https://yu-nan.gitee.io/syy-notes/");
       }
       if (index == 1) {
+        window.location.href = "https://gitee.com/yu-nan/syy-template";
         window.open("https://gitee.com/yu-nan/syy-template");
       }
       if (index == 2) {
@@ -138,9 +128,9 @@ export default {
 <style lang="scss" scoped>
 #total {
   // $mybgc: var(--mybgc);
-  $mybgc: "../../tmp-background/微信图片_20210903124216.jpg";
+  // $mybgc: "../../tmp-background/微信图片_20210903124216.jpg";
   background-size: cover;
-  background-image: url($mybgc);
+  background-image: url("../../tmp-background/1.png");
 }
 // .left a:hover {
 //   color: #ffffff !important;

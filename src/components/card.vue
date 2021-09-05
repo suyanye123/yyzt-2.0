@@ -1,12 +1,12 @@
 <template>
   <div class="card">
     <!-- 上半 -->
-    <div class="show">
-      <div class="title">{{ list.title }}</div>
-      <div class="title2">{{ list.text }}</div>
+    <div class="top">
+      <h2>{{ list.title }}</h2>
+      <h3>{{ list.text }}</h3>
     </div>
     <!-- 下半 -->
-    <div class="noshow">
+    <div class="bottom">
       <div v-for="item in list.span" :key="item.index" class="tag">
         <img src="../assets/syy123.jpg" style="height: 16px;width: 16px;" />
         <p>{{ item }}</p>
@@ -28,20 +28,24 @@ export default {
 </script>
 <style scoped lang="scss">
 .card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   background-color: rgb(177, 166, 166);
   opacity: 0.5;
-  padding: 20px;
+
   width: 280px;
   height: 200px;
 
-  .show {
-    position: relative;
-  }
-  .noshow {
+  .top {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40%;
+    background-color: rgb(86, 167, 122);
+  }
+  .bottom {
+    display: flex;
+    height: 60%;
+    background-color: #fff;
     .tag {
       display: flex;
     }
