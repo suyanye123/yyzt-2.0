@@ -131,7 +131,7 @@ export default {
   // $mybgc: var(--mybgc);
   // $mybgc: "../../tmp-background/微信图片_20210903124216.jpg";
   background-size: cover;
-  background-image: url("../../tmp-background/5.jpg");
+  background-image: url("../assets/5.jpg");
 }
 // .left a:hover {
 //   color: #ffffff !important;

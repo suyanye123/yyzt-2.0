@@ -49,7 +49,7 @@ export default {
   width: 30px;
   height: 30px;
   border-radius: 300px;
-  background: url("../tmp-background/5.jpg");
+  background: url("./assets/5.jpg");
   background-attachment: fixed;
   background-position: center center;
 }
