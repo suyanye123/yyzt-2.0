@@ -36,16 +36,17 @@
         v-for="(item, index) in list"
         :key="index"
         :list="item"
-        @click="intoDetail(item, index)"
       />
     </div>
   </div>
 </template>
 <script>
 import card from "../components/card.vue";
+import WaveItem from "../components/wave.vue";
 import { onMounted, onUnmounted, reactive } from "vue";
+
 export default {
-  components: { card },
+  components: { card, WaveItem },
   setup() {
     let bgclist = [];
     let timer1;
@@ -130,7 +131,7 @@ export default {
   // $mybgc: var(--mybgc);
   // $mybgc: "../../tmp-background/微信图片_20210903124216.jpg";
   background-size: cover;
-  background-image: url("../../tmp-background/1.png");
+  background-image: url("../../tmp-background/5.jpg");
 }
 // .left a:hover {
 //   color: #ffffff !important;
@@ -148,7 +149,7 @@ export default {
 
 .left > .avatar {
   display: block;
-  margin: 0 auto 2.25em auto;
+  margin: 0 auto 2.25rem auto;
 }
 .avatar img {
   width: 10rem;
@@ -156,7 +157,7 @@ export default {
 }
 .avatar > h1 {
   color: #d4d4d4;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   margin: 0;
 }
 
@@ -176,7 +177,7 @@ export default {
 }
 
 #footer .copyright {
-  line-height: 1em;
+  line-height: 1rem;
   list-style: none;
   padding: 0;
 }
@@ -184,9 +185,9 @@ export default {
 #footer .copyright li {
   border-left: solid 1px #d4d4d4;
   display: inline-block;
-  font-size: 0.8em;
-  margin-left: 1em;
-  padding-left: 1em;
+  font-size: 0.8rem;
+  margin-left: 1rem;
+  padding-left: 1rem;
 }
 
 #footer .copyright li:first-child {
