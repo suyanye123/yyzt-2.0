@@ -10,7 +10,7 @@
         </p>
       </div>
       <!-- content -->
-      <div>
+      <div class="content">
         <p>
           Hi there! I'm suyanye123 👋 <br />
           一名觉得自己啥也不会<br />
@@ -31,12 +31,21 @@
     </div>
     <!-- 右侧卡片 -->
     <div class="right">
-      <card
-        class="cardItem"
-        v-for="(item, index) in list"
-        :key="index"
-        :list="item"
-      />
+      <div class="bgc" v-show="showCard">
+        <!-- <img
+          class="icon"
+          src="../assets/syy123.jpg"
+          alt=""
+          @click="showCard = false"
+        /> -->
+        <card
+          class="cardItem"
+          v-for="(item, index) in list"
+          :key="index"
+          :list="item"
+          @click="intoDetail(item, index)"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -65,6 +74,7 @@ export default {
   },
   data() {
     return {
+      showCard: true,
       list: [
         {
           title: "syy-notes",
@@ -102,26 +112,28 @@ export default {
   },
   methods: {
     intoDetail(item, index) {
-      if (index == 0) {
-        window.location.href = "https://yu-nan.gitee.io/syy-notes/";
-        // window.open("https://yu-nan.gitee.io/syy-notes/");
-      }
-      if (index == 1) {
-        window.location.href = "https://gitee.com/yu-nan/syy-template";
-        window.open("https://gitee.com/yu-nan/syy-template");
-      }
-      if (index == 2) {
-        window.open("https://gitee.com/yu-nan/suUI");
-      }
-      if (index == 3) {
-        // window.open("https://gitee.com/yu-nan/syy-template");
-      }
-      if (index == 4) {
-        // window.open("https://gitee.com/yu-nan/syy-template");
-      }
-      if (index == 5) {
-        this.$router.push("/Pic");
-      }
+      setTimeout(() => {
+        if (index == 0) {
+          window.location.href = "https://yu-nan.gitee.io/syy-notes/";
+          // window.open("https://yu-nan.gitee.io/syy-notes/");
+        }
+        if (index == 1) {
+          window.location.href = "https://gitee.com/yu-nan/syy-template";
+          window.open("https://gitee.com/yu-nan/syy-template");
+        }
+        if (index == 2) {
+          window.open("https://gitee.com/yu-nan/suUI");
+        }
+        if (index == 3) {
+          // window.open("https://gitee.com/yu-nan/syy-template");
+        }
+        if (index == 4) {
+          // window.open("https://gitee.com/yu-nan/syy-template");
+        }
+        if (index == 5) {
+          this.$router.push("/Pic");
+        }
+      }, 1000);
     },
   },
 };
@@ -130,8 +142,9 @@ export default {
 #total {
   // $mybgc: var(--mybgc);
   // $mybgc: "../../tmp-background/微信图片_20210903124216.jpg";
-  background-size: cover;
+  background-size: 1536px 760px;
   background-image: url("../assets/5.jpg");
+  user-select: none;
 }
 // .left a:hover {
 //   color: #ffffff !important;
@@ -143,8 +156,44 @@ export default {
   -webkit-flex-shrink: 0;
   -ms-flex-shrink: 0;
   flex-shrink: 0;
+
   // background-color: rgb(223, 221, 221);
+  // opacity: 0.5;
+
   height: 100vh;
+  z-index: 999;
+
+  .a {
+    // background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .d {
+      position: relative;
+      width: 200px;
+      height: 90px;
+      right: 0;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+    .d img {
+      position: absolute;
+      width: 200px;
+      /* 小图片上移 */
+      transform: translate(0, -50px);
+      transition: 0.5s;
+      right: 0;
+    }
+    .d.dd {
+      opacity: 0;
+      right: 250px;
+    }
+    .d:hover img {
+      opacity: 0;
+      right: 250px;
+    }
+  }
 }
 
 .left > .avatar {
@@ -165,6 +214,14 @@ export default {
   color: #d2f2e9;
   font-style: italic;
   margin: 1em 0 0 0;
+}
+/* content */
+.content {
+  // background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d4d4d4;
 }
 
 /* Footer */
@@ -201,15 +258,55 @@ export default {
 }
 /* right */
 .right {
-  overflow: scroll;
   // background-color: rgb(153, 173, 119);
+  -moz-flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  // position: relative;
+}
+.right:hover {
+  opacity: 1;
+}
+.bgc {
+  // position: absolute;
+  // left: 0px;
+  // top: 0px;
+  width: 80%;
+  overflow: scroll;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   border-radius: 30px;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2)
+  );
+  /* 重点：使元素背景模糊化 */
+  backdrop-filter: blur(2px);
+  // opacity: 0;
+  .icon {
+    position: absolute;
+    left: 95%;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+  }
 }
-.right > .cardItem {
+.bgc:hover {
+  opacity: 1;
+}
+.bgc > .cardItem {
   flex-shrink: 0;
+  margin: 20px;
 }
 </style>

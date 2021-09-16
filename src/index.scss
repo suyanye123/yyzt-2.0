@@ -115,7 +115,8 @@ html {
   /* Basic */
   /* others */
   #total {
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
   }
   .left {
     width: 100vw;
