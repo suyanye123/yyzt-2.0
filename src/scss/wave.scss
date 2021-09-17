@@ -1,0 +1,70 @@
+/* 波纹 */
+#mywave {
+  position: absolute;
+}
+.wave {
+  position: absolute;
+  top: calc((100% - 30px) / 2);
+  left: calc((100% - 30px) / 2);
+  width: 30px;
+  height: 30px;
+  border-radius: 300px;
+  background-image: url("./assets/0.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+}
+.wavex {
+  position: absolute;
+  top: calc((100% - 30px) / 2);
+  left: calc((100% - 30px) / 2);
+  width: 30px;
+  height: 30px;
+  border-radius: 300px;
+  background-image: url("./assets/1.jpg");
+  background-attachment: fixed;
+  background-position: center center;
+}
+.wave0 {
+  z-index: 2;
+  background-size: auto 106%;
+  animation: w 1s forwards;
+}
+.wave1 {
+  z-index: 3;
+  background-size: auto 102%;
+  animation: w 1s 0.2s forwards;
+}
+.wave2 {
+  z-index: 4;
+  background-size: auto 104%;
+  animation: w 1s 0.4s forwards;
+}
+.wave3 {
+  z-index: 5;
+  background-size: auto 101%;
+  animation: w 1s 0.5s forwards;
+}
+.wave4 {
+  z-index: 6;
+  background-size: auto 102%;
+  animation: w 1s 0.8s forwards;
+}
+.wave5 {
+  z-index: 7;
+  background-size: 1536px 760px;
+  animation: w 1s 1s forwards;
+}
+@keyframes w {
+  0% {
+    top: calc((100% - 30px) / 2);
+    left: calc((100% - 30px) / 2);
+    width: 30px;
+    height: 30px;
+  }
+  100% {
+    top: calc((100% - 300px) / 2);
+    left: calc((100% - 300px) / 2);
+    width: 300px;
+    height: 300px;
+  }
+}
