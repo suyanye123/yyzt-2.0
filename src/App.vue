@@ -17,7 +17,7 @@ export default {
     useClick();
     let page = ref(0);
     const route = useRouter();
-    window.addEventListener("mousewheel", (e) => {
+    function changepage(e) {
       //往下滚动
       if (e.deltaY > 0 && page.value < 1) {
         page.value++;
@@ -26,7 +26,8 @@ export default {
       if (e.deltaY < 0 && page.value > 0) {
         page.value--;
       }
-    });
+    }
+    window.addEventListener("mousewheel", changepage);
 
     // 监听更改背景图;
     watch(

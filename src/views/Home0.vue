@@ -22,12 +22,15 @@
     <!-- 右侧卡片 -->
     <div class="right">
       <div class="bgc" v-show="showCard">
-        <img
-          class="icon"
-          src="../assets/syy123.jpg"
-          alt=""
+        <!-- vue中并没有 @hover 事件，但是可以使用 @mouseenter 和 @mouseleave 来模拟hover操作。 -->
+        <svg
+          aria-hidden="true"
+          :class="{ icon: true, iconhover: rotate }"
+          @mouseenter="iconHover"
           @click="showCard = false"
-        />
+        >
+          <use xlink:href="#su-icon-close"></use>
+        </svg>
         <card
           class="cardItem"
           v-for="(item, index) in list"
@@ -49,7 +52,8 @@ export default {
   },
   data() {
     return {
-      showCard: false,
+      showCard: true,
+      rotate: false,
       list: [
         {
           title: "syy-notes",
@@ -109,6 +113,16 @@ export default {
           this.$router.push("/Pic");
         }
       }, 1000);
+    },
+    iconHover() {
+      if (this.rotate) {
+        return;
+      }
+      console.log("飘过", this.rotate);
+      this.rotate = true;
+      setTimeout(() => {
+        this.rotate = false;
+      }, 600);
     },
   },
 };
@@ -201,12 +215,20 @@ export default {
   /* 重点：使元素背景模糊化 */
   backdrop-filter: blur(2px);
   // opacity: 0;
+
   .icon {
     position: absolute;
-    left: 95%;
-    top: 5px;
-    width: 30px;
-    height: 30px;
+    color: #ffffff99;
+    right: 4px;
+    top: 4px;
+    font-size: 40px;
+  }
+  .iconhover {
+    color: #d4d4d4;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 1s linear;
+    transition: transform 0.5s linear;
   }
 }
 .bgc:hover {
