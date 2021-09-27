@@ -14,7 +14,7 @@
         <p>
           Hi there! I'm suyanye123 👋 <br />
           一名觉得自己啥也不会<br />
-          自学转行的编程爱好者 <br />
+          的编程爱好者 <br />
           微信公众号：简素言也
         </p>
       </div>
@@ -44,16 +44,51 @@
 </template>
 <script>
 import card from "../components/card.vue";
-
+import { ref } from "vue";
 export default {
   components: { card },
   setup() {
-    return {};
+    function intoDetail(item, index) {
+      setTimeout(() => {
+        if (index == 0) {
+          window.location.href = "https://yu-nan.gitee.io/syy-notes/";
+          // window.open("https://yu-nan.gitee.io/syy-notes/");
+        }
+        if (index == 1) {
+          window.location.href = "https://gitee.com/yu-nan/syy-template";
+          window.open("https://gitee.com/yu-nan/syy-template");
+        }
+        if (index == 2) {
+          window.open("https://gitee.com/yu-nan/suUI");
+        }
+        if (index == 3) {
+          // window.open("https://gitee.com/yu-nan/syy-template");
+        }
+        if (index == 4) {
+          // window.open("https://gitee.com/yu-nan/syy-template");
+        }
+        if (index == 5) {
+          this.$router.push("/Pic");
+        }
+      }, 1000);
+    }
+    let rotate = ref(false);
+    function iconHover() {
+      if (rotate.value) {
+        return;
+      }
+      console.log("飘过", rotate);
+      rotate.value = true;
+      setTimeout(() => {
+        rotate.value = false;
+      }, 600);
+    }
+    return { intoDetail, iconHover, rotate };
   },
   data() {
     return {
       showCard: true,
-      rotate: false,
+
       list: [
         {
           title: "syy-notes",
@@ -88,42 +123,6 @@ export default {
       ],
       // img: require("../../tmp-background/微信图片_20210903124216.jpg"),
     };
-  },
-  methods: {
-    intoDetail(item, index) {
-      setTimeout(() => {
-        if (index == 0) {
-          window.location.href = "https://yu-nan.gitee.io/syy-notes/";
-          // window.open("https://yu-nan.gitee.io/syy-notes/");
-        }
-        if (index == 1) {
-          window.location.href = "https://gitee.com/yu-nan/syy-template";
-          window.open("https://gitee.com/yu-nan/syy-template");
-        }
-        if (index == 2) {
-          window.open("https://gitee.com/yu-nan/suUI");
-        }
-        if (index == 3) {
-          // window.open("https://gitee.com/yu-nan/syy-template");
-        }
-        if (index == 4) {
-          // window.open("https://gitee.com/yu-nan/syy-template");
-        }
-        if (index == 5) {
-          this.$router.push("/Pic");
-        }
-      }, 1000);
-    },
-    iconHover() {
-      if (this.rotate) {
-        return;
-      }
-      console.log("飘过", this.rotate);
-      this.rotate = true;
-      setTimeout(() => {
-        this.rotate = false;
-      }, 600);
-    },
   },
 };
 </script>
