@@ -9,10 +9,11 @@ import { useRouter } from "vue-router";
 import useClick from "./hooks/useClick";
 import subscript from "./components/subscript.vue";
 import foot from "./components/foot.vue";
+
 export default {
   components: { subscript, foot },
   setup() {
-    // DOM 元素将在初始渲染后分配给 ref
+    // DOM 元素将在初始渲染后分配给 ref】
     // alert(document.body.clientWidth);
     useClick();
     let page = ref(0);
@@ -54,6 +55,6 @@ export default {
 };
 </script>
 <style lang="scss">
+// 引入总的css文件
 @import "./index.scss";
-@import "./scss/wave.scss";
 </style>
