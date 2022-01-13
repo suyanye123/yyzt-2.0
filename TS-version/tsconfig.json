@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "target": "esnext", //指定编译后js版本
+    "module": "esnext", //指定模块化规范版本
+    "strict": true, //所有严格检查的总开关，下面两个可以不写
+    "noImplicitAny": true, //不允许隐式的any类型，即未声明类型时，系统自动改为any
+    "strictNullChecks": true, //严格检查空值
+    "jsx": "preserve",
+    "importHelpers": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "types": [
+      "webpack-env"
+    ],
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
+    // 项目中用到的库
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable",
+      "scripthost"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx"
+  ],
+  // 要排除的文件
+  "exclude": [
+    "node_modules"
+  ]
+}
